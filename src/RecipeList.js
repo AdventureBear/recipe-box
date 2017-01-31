@@ -11,14 +11,18 @@ class RecipeList extends Component {
         return (
             <div className='component-recipelist'>
                 <h1>RecipeList</h1>
-                <RecipeCard />
+                {this.props.recipeData.map((recipe, i)=>{
+                    return <RecipeCard key={i} recipe={recipe} />
+                })}
+
+
             </div>
         )
     }
 }
 
 RecipeList.propTypes = {
-
+    recipeData: React.PropTypes.array
 };
 
 export default RecipeList

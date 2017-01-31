@@ -10,15 +10,15 @@ class IngredientList extends Component {
     render(){
         return (
             <div className='component-ingredientlist'>
-                <h1>IngredientList</h1>
-                <IngredientDetail />
+                <b>Ingredients</b>
+                <IngredientDetail ingredientList={this.props.ingredientList} />
             </div>
         )
     }
 }
 
 IngredientList.propTypes = {
-
+    ingredientList: React.PropTypes.array
 };
 
 export default IngredientList

@@ -9,14 +9,15 @@ class Instructions extends Component {
     render(){
         return (
             <div className='component-instructions'>
-                <h1>Instructions</h1>
+                <b>Directions</b>
+                <p>{this.props.instructions}</p>
             </div>
         )
     }
 }
 
 Instructions.propTypes = {
-
-};
+ instruction: React.PropTypes.string
+}
 
 export default Instructions

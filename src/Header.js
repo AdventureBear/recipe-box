@@ -9,7 +9,8 @@ class Header extends Component {
     render(){
         return (
             <div className='component-header'>
-                <h1>Header</h1>
+                <span className="label">Search:</span>
+                <input  className="input"   placeholder="Search Recipes" />
             </div>
         )
     }

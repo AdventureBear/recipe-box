@@ -12,17 +12,18 @@ class RecipeCard extends Component {
     render(){
         return (
             <div className='component-recipecard'>
-                <h1>RecipeCard</h1>
+                {this.props.recipe.title}
+
                 <RecipeActions />
-                <IngredientList />
-                <Instructions />
+                <IngredientList ingredientList={this.props.recipe.ingredientList}  />
+                <Instructions instructions={this.props.recipe.instructions} />
             </div>
         )
     }
 }
 
 RecipeCard.propTypes = {
-
+    recipe: React.PropTypes.object
 };
 
 export default RecipeCard

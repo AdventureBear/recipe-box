@@ -9,7 +9,7 @@ class RecipeActions extends Component {
     render(){
         return (
             <div className='component-recipeactions'>
-                <h1>RecipeActions</h1>
+                <button className="button">Edit</button>
             </div>
         )
     }
