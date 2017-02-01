@@ -1,11 +1,9 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import IngredientDetail from './IngredientDetail'
 import './IngredientList.css'
 
 class IngredientList extends Component {
-    constructor(props){
-        super(props)
-    }
+
 
     render(){
         return (
@@ -18,7 +16,8 @@ class IngredientList extends Component {
 }
 
 IngredientList.propTypes = {
-    ingredientList: React.PropTypes.array
+    ingredientList: React.PropTypes.array,
+    isEditing: React.PropTypes.bool
 };
 
 export default IngredientList

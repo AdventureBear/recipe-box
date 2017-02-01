@@ -1,29 +1,49 @@
-import React, { Component, PropTypes } from 'react'
-import RecipeActions from './RecipeActions'
+import React, { Component } from 'react'
 import IngredientList from './IngredientList'
-import Instructions from './Instructions'
 import './RecipeCard.css'
 
 class RecipeCard extends Component {
-    constructor(props){
-        super(props)
+
+    renderDisplay() {
+        return (
+          <div className='component-recipecard'>
+              {this.props.recipe.title}
+              <button className="button" onClick={this.props.editButtonClick}>Edit</button>
+              <IngredientList isEditing={this.props.isEditing} ingredientList={this.props.recipe.ingredientList}  />
+              <b>Directions</b>
+              <p>{this.props.recipe.instructions}</p>
+
+          </div>
+        )
+    }
+
+    renderEdit(){
+        return (
+          <div className='component-recipecard'>
+              {this.props.recipe.title}
+              <button className="button" onClick={this.props.saveButtonClick}>Save</button>
+              <IngredientList isEditing={this.props.isEditing} ingredientList={this.props.recipe.ingredientList}  />
+              <b>Directions</b>
+              <textarea onChange={this.props.handleInstructionChange} defaultValue={this.props.recipe.instructions}></textarea>
+
+          </div>
+        )
     }
 
     render(){
-        return (
-            <div className='component-recipecard'>
-                {this.props.recipe.title}
-
-                <RecipeActions editButtonClick={this.props.editButtonClick}/>
-                <IngredientList ingredientList={this.props.recipe.ingredientList}  />
-                <Instructions instructions={this.props.recipe.instructions} />
-            </div>
-        )
+            if (this.props.isEditing){
+                return this.renderEdit()
+            } else {
+                return this.renderDisplay()
+            }
     }
 }
 
 RecipeCard.propTypes = {
-  recipe: React.PropTypes.object,
-  editButtonClick: React.PropTypes.func
+    recipe: React.PropTypes.object,
+    editButtonClick: React.PropTypes.func,
+    saveButtonClick: React.PropTypes.func,
+    isEditing: React.PropTypes.bool,
+    handleInstructionChange: React.PropTypes.bool
 }
 export default RecipeCard

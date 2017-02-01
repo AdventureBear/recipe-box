@@ -1,11 +1,7 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import './IngredientDetail.css'
 
 class IngredientDetail extends Component {
-    constructor(props){
-        super(props)
-    }
-
     render(){
         return (
             <div className='component-ingredientdetail'>

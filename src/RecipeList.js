@@ -1,18 +1,15 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import RecipeCard from './RecipeCard'
 import './RecipeList.css'
 
 class RecipeList extends Component {
-    constructor(props){
-        super(props)
-    }
 
     render(){
         return (
             <div className='component-recipelist'>
                 <h1>RecipeList</h1>
                 {this.props.recipeData.map((recipe, i)=>{
-                    return <RecipeCard key={i} recipe={recipe} editButtonClick={this.props.editButtonClick}/>
+                    return <RecipeCard handleInstructionChange={this.props.handleInstructionChange} isEditing={this.props.isEditing} key={i} recipe={recipe} saveButtonClick={this.props.saveButtonClick} editButtonClick={this.props.editButtonClick}/>
                 })}
 
 
@@ -23,7 +20,10 @@ class RecipeList extends Component {
 
 RecipeList.propTypes = {
     recipeData: React.PropTypes.array,
-    editButtonClick: React.PropTypes.func
+    editButtonClick: React.PropTypes.func,
+    saveButtonClick: React.PropTypes.func,
+    isEditing: React.PropTypes.bool,
+    handleInstructionChange: React.PropTypes.func
 };
 
 export default RecipeList
