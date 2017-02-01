@@ -14,7 +14,7 @@ class RecipeCard extends Component {
             <div className='component-recipecard'>
                 {this.props.recipe.title}
 
-                <RecipeActions />
+                <RecipeActions editButtonClick={this.props.editButtonClick}/>
                 <IngredientList ingredientList={this.props.recipe.ingredientList}  />
                 <Instructions instructions={this.props.recipe.instructions} />
             </div>
@@ -23,7 +23,7 @@ class RecipeCard extends Component {
 }
 
 RecipeCard.propTypes = {
-    recipe: React.PropTypes.object
-};
-
+  recipe: React.PropTypes.object,
+  editButtonClick: React.PropTypes.func
+}
 export default RecipeCard

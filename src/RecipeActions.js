@@ -9,14 +9,14 @@ class RecipeActions extends Component {
     render(){
         return (
             <div className='component-recipeactions'>
-                <button className="button">Edit</button>
+                <button className="button" onClick={this.props.editButtonClick}>Edit</button>
             </div>
         )
     }
 }
 
 RecipeActions.propTypes = {
-
+ editButtonClick: React.PropTypes.func
 };
 
 export default RecipeActions

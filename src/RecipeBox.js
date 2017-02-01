@@ -11,12 +11,14 @@ class RecipeBox extends Component {
     handleSearchChange = (event) => {
         console.log('search input changed to:', event.target.value);
     }
+    editButtonClick = (event) => {
+        console.log('Edit Button Clicked')
+    }
     render(){
         return (
             <div className='component-recipebox'>
                 <Header textChange={this.handleSearchChange} />
-                <RecipeList   recipeData={this.props.recipeData}
-
+                <RecipeList   recipeData={this.props.recipeData} editButtonClick={this.editButtonClick}
                   />
                 <Footer />
             </div>
