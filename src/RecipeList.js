@@ -8,10 +8,10 @@ class RecipeList extends Component {
         return (
             <div className='component-recipelist'>
                 <h1>RecipeList</h1>
-                {this.props.recipeData.map((recipe, i)=>{
+
+                {this.props.recipies.map((recipe, i)=>{
                     return <RecipeCard handleInstructionChange={this.props.handleInstructionChange} isEditing={this.props.isEditing} key={i} recipe={recipe} saveButtonClick={this.props.saveButtonClick} editButtonClick={this.props.editButtonClick}/>
                 })}
-
 
             </div>
         )
@@ -19,11 +19,13 @@ class RecipeList extends Component {
 }
 
 RecipeList.propTypes = {
-    recipeData: React.PropTypes.array,
+
+    recipies: React.PropTypes.array,
     editButtonClick: React.PropTypes.func,
     saveButtonClick: React.PropTypes.func,
     isEditing: React.PropTypes.bool,
     handleInstructionChange: React.PropTypes.func
-};
+
+}
 
 export default RecipeList

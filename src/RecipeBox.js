@@ -10,14 +10,17 @@ class RecipeBox extends Component {
     constructor(props){
         super(props)
         this.state ={
+
             filteredRecipes: recipeData,
-            editing: false
+              editing: false
         }
     }
     handleSearchChange = (event) => {
-        console.log('search input changed to:', event.target.value);
+        console.log('search input changed to:', event.target.value)
+        console.log(filterRecipes(event.target.value))
         this.setState({
             filteredRecipes: filterRecipes(event.target.value)
+
         })
     }
 
@@ -46,7 +49,9 @@ class RecipeBox extends Component {
         return (
             <div className='component-recipebox'>
                 <Header textChange={this.handleSearchChange} />
-                <RecipeList   isEditing={this.state.editing} recipeData={this.state.filteredRecipes} saveButtonClick={this.saveButtonClick} editButtonClick={this.editButtonClick}
+
+                <RecipeList   isEditing={this.state.editing} recipies={this.state.filteredRecipes} saveButtonClick={this.saveButtonClick} editButtonClick={this.editButtonClick}
+
                   />
                 <Footer />
             </div>

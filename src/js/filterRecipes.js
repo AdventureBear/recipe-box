@@ -3,13 +3,16 @@
  */
  import recipeData from "../recipeData.json"
 
-export default function filterRecipes(searchText){
-  const searchTextToLower = searchText.toLowerCase()
-  return recipeData.filter((recipe)=> {
-    if (recipe.title.toLowerCase().includes(searchTextToLower)) {
-      console.log("Returning", recipe.title)
+export default function filterRecipes(searchText) {
+  const regex = new RegExp(searchText, 'gi');
+
+  return recipeData.filter((recipe) => {
+    if (recipe.title.match(regex)) {
+      console.log(recipe.title)
       return true
+    } else {
+      return false
     }
-    return false
+
   })
 }
