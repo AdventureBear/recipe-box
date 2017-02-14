@@ -2,14 +2,11 @@ import React, { Component } from 'react';
 import RecipeBox from './RecipeBox'
 import logo from './frying_pan.png';
 import './App.css';
-import recipeData from './recipeData.json'
+
 
 class App extends Component {
   constructor(props){
     super(props)
-    this.state ={
-      filteredRecipes: recipeData
-    }
   }
   render() {
     return (
@@ -19,11 +16,11 @@ class App extends Component {
           <h2>Your Recipe Box</h2>
         </div>
         <div className="App-intro">
-          <RecipeBox recipeData={this.state.filteredRecipes}
+          <RecipeBox
             />
         </div>
       </div>
-    );
+    )
   }
 }
 

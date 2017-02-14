@@ -3,15 +3,16 @@
  */
  import recipeData from "../recipeData.json"
 
-export default function filterRecipes(searchText){
-  return recipeData.filter((recipe)=> {
-    if (recipe.title.includes(searchText)) {
+export default function filterRecipes(searchText) {
+  const regex = new RegExp(searchText, 'gi');
+
+  return recipeData.filter((recipe) => {
+    if (recipe.title.match(regex)) {
+      console.log(recipe.title);
       return true
+    } else {
+      return false
     }
 
-    if (recipe.ingredientList.ingredient.includes(searchText)) {
-      return true
-    }
-    return false
   })
 }

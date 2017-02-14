@@ -11,7 +11,7 @@ class RecipeList extends Component {
         return (
             <div className='component-recipelist'>
                 <h1>RecipeList</h1>
-                {this.props.recipeData.map((recipe, i)=>{
+                {this.props.recipies.map((recipe, i)=>{
                     return <RecipeCard key={i} recipe={recipe} editButtonClick={this.props.editButtonClick}/>
                 })}
 
@@ -22,7 +22,7 @@ class RecipeList extends Component {
 }
 
 RecipeList.propTypes = {
-    recipeData: React.PropTypes.array,
+    recipies: React.PropTypes.array,
     editButtonClick: React.PropTypes.func
 };
 
