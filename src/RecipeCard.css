@@ -1,4 +1,77 @@
 .component-recipecard {
-    background-color: #fdefde;
-    color: #321321;
+    max-width: 30em;
+    display: block;
+    overflow: hidden;
+    transition: max-width 3s;
+    font-family: 'Oswald', sans-serif;
+    border: solid 1px rgb(205, 90, 0);
+    border-radius: .4em;
+    margin: 3em auto;
+    background-color: rgba(255, 140, 0, 1);
+    box-shadow: -3px 3px 10px rgba(30, 30, 30, .4);
+    text-shadow: 0px 1px 3px rgba(255, 255, 255, .5);
+    color: #190F00;
+
+}
+
+.button {
+    background: #fcad26;
+    color: #222;
+    cursor: pointer;
+    display: inline-block;
+    margin: 15px 30px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 1em;
+    outline: none;
+    position: relative;
+    transition: all 0.3s;
+    text-align: center;
+    padding: 20px 60px 20px 60px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background: #f29e0d;
+}
+.component-recipecard h2 {
+    background-color: rgba(255, 205, 205, .3);
+    margin: 0;
+    padding: 1em .2em;
+    box-sizing: content-box;
+    display: block;
+    border-bottom: solid 1px rgba(205, 90, 0, 1);
+}
+
+.component-recipecard h3 {
+    padding: 12px 0;
+    box-sizing: border-box;
+    border-top: solid 1px rgba(205, 90, 0, 1);
+    border-bottom: solid 1px rgba(205, 90, 0, 1);
+    background-color: rgba(255, 205, 205, .3);
+}
+
+
+.component-recipecard:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+
+.directions {
+    text-align: left;
+    padding: 0 10px;
+}
+
+textarea {
+    margin: 0 auto;
+    text-align: left;
+    font-size: 1em;
+    height: 300px;
+    width: 90%;
+    box-shadow: 3px 3px 15px;
+    overflow: scroll;
+    display: block;
+    clear: both;
+    padding-bottom: 10px;
 }

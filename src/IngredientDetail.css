@@ -1,4 +1,52 @@
 .component-ingredientdetail {
-    background-color: #fdefde;
+
     color: #321321;
+
 }
+
+ul {
+    display: table;
+    list-style-type: none;
+}
+
+li {
+    display: table-row;
+}
+
+span {
+    display: table-cell;
+}
+
+span.left {
+    text-align: left;
+}
+
+span.right {
+    text-align: right;
+}
+
+span.bold{
+    font-weight: bold;
+}
+
+.input {
+    font-size: 1em;
+}
+
+span.one, input.one{
+    width: 12.5%;
+}
+
+span.two, input.two {
+    width: 25%;
+}
+span.four, input.four{
+    width: 50%;
+}
+
+span.eight, input.eight {
+    width: 100%;
+}
+
+
+

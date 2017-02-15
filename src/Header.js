@@ -7,7 +7,7 @@ class Header extends Component {
         return (
             <div className='component-header'>
                 <span className="label">Search:</span>
-                <input  className="input"  onChange={this.props.textChange} placeholder="Search Recipes" />
+                <input className="input"  onChange={this.props.textChange} placeholder="Search Recipes" />
             </div>
         )
     }

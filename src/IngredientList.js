@@ -8,8 +8,8 @@ class IngredientList extends Component {
     render(){
         return (
             <div className='component-ingredientlist'>
-                <b>Ingredients</b>
-                <IngredientDetail ingredientList={this.props.ingredientList} />
+                <h3>Ingredients</h3>
+                <IngredientDetail isEditing={this.props.isEditing} ingredientList={this.props.ingredientList} />
             </div>
         )
     }
@@ -18,6 +18,6 @@ class IngredientList extends Component {
 IngredientList.propTypes = {
     ingredientList: React.PropTypes.array,
     isEditing: React.PropTypes.bool
-};
+}
 
 export default IngredientList
