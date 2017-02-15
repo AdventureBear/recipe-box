@@ -44,9 +44,28 @@ span.four, input.four{
     width: 50%;
 }
 
+span.six, input.six {
+    width: 75%
+}
+
 span.eight, input.eight {
     width: 100%;
 }
 
 
+.form-style {
+    margin: 10px auto;
+    padding: 20px 12px 10px 20px;
+}
 
+.form-style li {
+    padding: 0;
+    list-style: none;
+    margin: 10px 0 0 0;
+}
+
+input, select {
+    display: inline;
+    max-width:300px; /*max-width for responsiveness*/
+    float:left;
+}

@@ -39,7 +39,6 @@ class RecipeBox extends Component {
     }
     saveButtonClick = () => {
         console.log('Save Button Clicked')
-        console.log('New Instructions', this.state.instructions)
         this.setState({
             editing: false
         })

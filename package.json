@@ -17,5 +17,5 @@
     "eject": "react-scripts eject",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "http://adventurebear.github.io/react-recipe-box"
+  "homepage": "http://adventurebear.github.io/recipe-box"
 }
