@@ -10,7 +10,18 @@ class RecipeList extends Component {
                 <h1>RecipeList</h1>
 
                 {this.props.recipies.map((recipe, i)=>{
-                    return <RecipeCard updateInstr={this.updateInstructions} deleteButtonClick={this.props.deleteButtonClick} handleInstructionChange={this.props.handleInstructionChange} isEditing={this.props.isEditing} key={i} index={i} recipe={recipe} saveButtonClick={this.props.saveButtonClick} editButtonClick={this.props.editButtonClick}/>
+                    return (
+                      <RecipeCard
+                        updateInstr={this.updateInstructions}
+                        deleteButtonClick={this.props.deleteButtonClick}
+                        handleInstructionChange={this.props.handleInstructionChange}
+                        isEditing={this.props.isEditing}
+                        key={i}
+                        index={i}
+                        recipe={recipe}
+                        saveButtonClick={this.props.saveButtonClick}
+                        editButtonClick={this.props.editButtonClick}/>
+                    )
                 })}
 
             </div>

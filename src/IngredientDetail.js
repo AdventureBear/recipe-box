@@ -8,14 +8,14 @@ class IngredientDetail extends Component {
                 <table>
                     <tbody>
                         <tr>
-                            <th>Amt</th>
+                            <th className="right">Amt</th>
                             <th>Unit</th>
                             <th>Ingredient</th>
                         </tr>
                     {this.props.ingredientList.map((ingredient, i)=>{
                         return (
                           <tr key={i}>
-                            <td>{ingredient.amount}</td>
+                            <td className="right">{ingredient.amount}</td>
                             <td>{ingredient.unit}</td>
                             <td>{ingredient.ingredient}</td>
                           </tr>
@@ -33,7 +33,7 @@ class IngredientDetail extends Component {
               <table>
                   <tbody>
                   <tr>
-                      <th>Amt</th>
+                      <th className="right">Amt</th>
                       <th>Unit</th>
                       <th>Ingredient</th>
                       <th>Actions</th>
@@ -42,9 +42,11 @@ class IngredientDetail extends Component {
                   {this.props.ingredientList.map((ingredient, i)=>{
                       return (
                     <tr key={i}>
-                      <td><input type="text"
+                      <td className="right">
+                          <input className="skinny" type="text"
                                  placeholder={ingredient.amount}
-                                 onChange={this.props.handleAmtChange} /></td>
+                                 onChange={this.props.handleAmtChange} />
+                      </td>
                         <td><select  defaultValue={ingredient.unit}
                                      onChange={this.props.handleUnitChange} >
                             <option value="teaspoon">tsp</option>
