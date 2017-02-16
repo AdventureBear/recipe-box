@@ -13,6 +13,7 @@ class RecipeCard extends Component {
               <h3>Directions</h3>
               <p className='directions'>{this.props.recipe.instructions}</p>
               <button className="button" onClick={this.props.editButtonClick}>Edit</button>
+              <button className="button" onClick={this.props.deleteButtonClick}>Remove</button>
 
             </div>
           </div>
@@ -51,6 +52,11 @@ RecipeCard.propTypes = {
     editButtonClick: React.PropTypes.func,
     saveButtonClick: React.PropTypes.func,
     isEditing: React.PropTypes.bool,
-    handleInstructionChange: React.PropTypes.bool
+    handleInstructionChange: React.PropTypes.bool,
+    updateInstr: React.PropTypes.func,
+    deleteButtonClick: React.PropTypes.func,
+    handleUnitChange: React.PropTypes.func,
+    handleAmtChange:React.PropTypes.func,
+    handleIngredientChange: React.PropTypes.func
 }
 export default RecipeCard

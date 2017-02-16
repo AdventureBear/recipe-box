@@ -3,13 +3,7 @@ import RecipeBox from './RecipeBox'
 import logo from './frying_pan.png';
 import './App.css';
 
-
-
-
 class App extends Component {
-  constructor(props){
-    super(props)
-  }
 
   render() {
     return (

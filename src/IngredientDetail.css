@@ -1,71 +1,32 @@
 .component-ingredientdetail {
-
     color: #321321;
-
+    margin: 0 auto;
+    padding: 10px;
 }
 
-ul {
-    display: table;
-    list-style-type: none;
-}
-
-li {
-    display: table-row;
-}
-
-span {
-    display: table-cell;
-}
-
-span.left {
-    text-align: left;
-}
-
-span.right {
-    text-align: right;
-}
-
-span.bold{
-    font-weight: bold;
-}
-
-.input {
-    font-size: 1em;
-}
-
-span.one, input.one{
-    width: 12.5%;
-}
-
-span.two, input.two {
-    width: 25%;
-}
-span.four, input.four{
-    width: 50%;
-}
-
-span.six, input.six {
-    width: 75%
-}
-
-span.eight, input.eight {
+table {
+    margin: 0 0 40px 0;
     width: 100%;
+
 }
 
-
-.form-style {
-    margin: 10px auto;
-    padding: 20px 12px 10px 20px;
+table:hover {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 
-.form-style li {
-    padding: 0;
-    list-style: none;
-    margin: 10px 0 0 0;
+tr {
+    display: table-row;
+    background: #f6f6f6;
+}
+tr:nth-of-type(odd) {
+    background: #e9e9e9;
 }
 
-input, select {
-    display: inline;
-    max-width:300px; /*max-width for responsiveness*/
-    float:left;
+th {
+    color: #333333;
+    background: none;
+}
+
+td {
+    padding: 6px 12px;
 }

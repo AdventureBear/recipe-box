@@ -43,15 +43,39 @@ class RecipeBox extends Component {
             editing: false
         })
     }
+    removeRecipe = (i) => {
+        console.log('Delete Button Clicked' + i)
+        console.log("Removing Recipe: " +i);
+        var arr=this.state.filteredRecipes
+        arr.splice(i, 1)
+        this.setState({
+            filteredRecipes: arr
+        })
+    }
+    updateInstructions = (newInstr, i) => {
+        console.log('Updating instructions: ' + i )
+        var arr=this.state.filteredRecipes
+        arr[i].instructions = newInstr
+        this.setState({
+            filteredRecipes: arr
+        })
+    }
 
     render(){
         return (
             <div className='component-recipebox'>
-                <Header textChange={this.handleSearchChange} />
+                <Header
+                  textChange={this.handleSearchChange}
+                />
 
-                <RecipeList   isEditing={this.state.editing} recipies={this.state.filteredRecipes} saveButtonClick={this.saveButtonClick} editButtonClick={this.editButtonClick}
-
-                  />
+                <RecipeList
+                  isEditing={this.state.editing}
+                  recipies={this.state.filteredRecipes}
+                  updateInstr={this.updateInstructions}
+                  deleteButtonClick={this.removeRecipe}
+                  saveButtonClick={this.saveButtonClick}
+                  editButtonClick={this.editButtonClick}
+                />
                 <Footer />
             </div>
         )

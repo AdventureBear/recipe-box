@@ -9,7 +9,13 @@ class IngredientList extends Component {
         return (
             <div className='component-ingredientlist'>
                 <h3>Ingredients</h3>
-                <IngredientDetail isEditing={this.props.isEditing} ingredientList={this.props.ingredientList} />
+                <IngredientDetail
+                  isEditing={this.props.isEditing}
+                  ingredientList={this.props.ingredientList}
+                  handleUnitChange={this.props.handleUnitChange}
+                  handleAmtChange={this.props.handleAmtChange}
+                  handleIngredientChange={this.props.handleIngredientChange}
+                />
             </div>
         )
     }
@@ -17,7 +23,10 @@ class IngredientList extends Component {
 
 IngredientList.propTypes = {
     ingredientList: React.PropTypes.array,
-    isEditing: React.PropTypes.bool
+    isEditing: React.PropTypes.bool,
+    handleUnitChange: React.PropTypes.func,
+    handleAmtChange:React.PropTypes.func,
+    handleIngredientChange: React.PropTypes.func
 }
 
 export default IngredientList
