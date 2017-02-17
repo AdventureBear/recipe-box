@@ -10,9 +10,8 @@ class RecipeBox extends Component {
     constructor(props){
         super(props)
         this.state ={
-
             filteredRecipes: recipeData,
-              editing: false
+            editing: false
         }
     }
     handleSearchChange = (event) => {
@@ -30,7 +29,10 @@ class RecipeBox extends Component {
             instructions: event.target.value
         })
     }
+    titleClicked =(i) => {
+        console.log('Title Clicked ' + i)
 
+    }
     editButtonClick = () => {
         console.log('Edit Button Clicked')
         this.setState({
@@ -71,6 +73,7 @@ class RecipeBox extends Component {
                 <RecipeList
                   isEditing={this.state.editing}
                   recipies={this.state.filteredRecipes}
+                  titleClicked={this.titleClicked}
                   updateInstr={this.updateInstructions}
                   deleteButtonClick={this.removeRecipe}
                   saveButtonClick={this.saveButtonClick}

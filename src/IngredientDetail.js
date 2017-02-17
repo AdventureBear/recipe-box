@@ -36,7 +36,7 @@ class IngredientDetail extends Component {
                       <th className="right">Amt</th>
                       <th>Unit</th>
                       <th>Ingredient</th>
-                      <th>Actions</th>
+                      <th></th>
                   </tr>
 
                   {this.props.ingredientList.map((ingredient, i)=>{
@@ -44,7 +44,7 @@ class IngredientDetail extends Component {
                     <tr key={i}>
                       <td className="right">
                           <input className="skinny" type="text"
-                                 placeholder={ingredient.amount}
+                                 defaultValue={ingredient.amount}
                                  onChange={this.props.handleAmtChange} />
                       </td>
                         <td><select  defaultValue={ingredient.unit}
@@ -72,16 +72,18 @@ class IngredientDetail extends Component {
                             </select>
                         </td>
                         <td><input type="text"
-                                   placeholder={ingredient.ingredient}
+                                   defaultValue={ingredient.ingredient}
                                    onChange={this.props.handleIngredientChange}/>
                         </td>
-                        <td>-</td>
+                        <td class="i delete">x</td>
                         </tr>
                       )
                   })}
 
                     <tr>
-                        <td><input type="text"
+                        <td className="right">
+                          <input  className="skinny"
+                                  type="text"
                                    placeholder="Amt"
                                    onChange={this.props.handleAmtChange} />
                         </td>
@@ -110,6 +112,7 @@ class IngredientDetail extends Component {
                         </td>
                         <td>
                             <input type="text"
+                                   placeholder="ingredient"
                                    onChange={this.props.handleIngredientChange} />
                         </td>
                         <td>+</td>

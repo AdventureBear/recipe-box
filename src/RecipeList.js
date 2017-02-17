@@ -12,13 +12,14 @@ class RecipeList extends Component {
                 {this.props.recipies.map((recipe, i)=>{
                     return (
                       <RecipeCard
+                        key={i}
+                        index={i}
+                        recipe={recipe}
+                        titleClicked = {this.props.titleClicked}
                         updateInstr={this.updateInstructions}
                         deleteButtonClick={this.props.deleteButtonClick}
                         handleInstructionChange={this.props.handleInstructionChange}
                         isEditing={this.props.isEditing}
-                        key={i}
-                        index={i}
-                        recipe={recipe}
                         saveButtonClick={this.props.saveButtonClick}
                         editButtonClick={this.props.editButtonClick}/>
                     )
@@ -37,7 +38,8 @@ RecipeList.propTypes = {
     deleteButtonClick: React.PropTypes.func,
     isEditing: React.PropTypes.bool,
     handleInstructionChange: React.PropTypes.func,
-    updateInstr: React.PropTypes.func
+    updateInstr: React.PropTypes.func,
+    titleClicked: React.PropTypes.func
 
 
 }
