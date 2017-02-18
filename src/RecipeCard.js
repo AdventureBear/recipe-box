@@ -6,17 +6,37 @@ class RecipeCard extends Component {
   constructor(props){
     super(props)
     this.state ={
-      show: false
+      show: false,
+      idEditing: false
       }
     }
     showRecipe = () => {
       console.log("clicked recipe")
       var showing = !this.state.show
-      this.props.titleClicked
+      this.props.titleClicked()
       this.setState({
         show: showing
       })
-
+    }
+    editButtonClick = () => {
+        console.log("Edit Button Clicked")
+        this.setState({
+          isEditing: true
+        })
+    }
+    //saveButtonClick = () => {
+    //  console.log('Save Button Clicked, in Component')
+    //  this.setState({
+    //    isEditing: false
+    //  })
+    //  this.props.saveInstructions()
+    //
+    //}
+    cancelButtonClick = () => {
+      console.log('Cancel Button Clicked')
+      this.setState({
+        isEditing: false
+      })
     }
     renderListView() {
       return (
@@ -36,7 +56,7 @@ class RecipeCard extends Component {
               <IngredientList isEditing={this.props.isEditing} ingredientList={this.props.recipe.ingredientList}  />
               <h3>Directions</h3>
               <p className='directions'>{this.props.recipe.instructions}</p>
-              <button className="button" onClick={this.props.editButtonClick}>Edit</button>
+              <button className="button" onClick={this.editButtonClick}>Edit</button>
               <button className="button" onClick={this.props.deleteButtonClick}>Remove</button>
 
             </div>
@@ -50,11 +70,12 @@ class RecipeCard extends Component {
             <div className='component-recipecard'>
               <div className='container'>
                 <h2>{this.props.recipe.title}</h2>
-                 <IngredientList isEditing={this.props.isEditing} ingredientList={this.props.recipe.ingredientList}  />
+                 <IngredientList isEditing={this.state.isEditing} ingredientList={this.props.recipe.ingredientList}  />
 
                 <h3>Directions</h3>
                 <textarea className='directions' onChange={this.props.handleInstructionChange} defaultValue={this.props.recipe.instructions}></textarea>
-                <button className="button" onClick={this.props.saveButtonClick}>Save</button>
+                <button className="button" onClick={this.props.saveInstructions}>Save</button>
+                <button className="button" onClick={this.cancelButtonClick}>Cancel</button>
 
               </div>
             </div>
@@ -64,7 +85,7 @@ class RecipeCard extends Component {
 
     render() {
       if (this.state.show) {
-        if (this.props.isEditing) {
+        if (this.state.isEditing) {
           return this.renderEdit()
         } else {
           return this.renderDisplayView()
@@ -77,15 +98,13 @@ class RecipeCard extends Component {
 
 RecipeCard.propTypes = {
     recipe: React.PropTypes.object,
-    editButtonClick: React.PropTypes.func,
-    saveButtonClick: React.PropTypes.func,
-    isEditing: React.PropTypes.bool,
-    handleInstructionChange: React.PropTypes.bool,
+    handleInstructionChange: React.PropTypes.func,
+    saveInstructions: React.PropTypes.func,
     updateInstr: React.PropTypes.func,
     deleteButtonClick: React.PropTypes.func,
     handleUnitChange: React.PropTypes.func,
     handleAmtChange:React.PropTypes.func,
     handleIngredientChange: React.PropTypes.func,
     titleClicked: React.PropTypes.func
-}
+};
 export default RecipeCard

@@ -75,7 +75,7 @@ class IngredientDetail extends Component {
                                    defaultValue={ingredient.ingredient}
                                    onChange={this.props.handleIngredientChange}/>
                         </td>
-                        <td class="i delete">x</td>
+                        <td className="i i-delete">x</td>
                         </tr>
                       )
                   })}
@@ -115,7 +115,7 @@ class IngredientDetail extends Component {
                                    placeholder="ingredient"
                                    onChange={this.props.handleIngredientChange} />
                         </td>
-                        <td>+</td>
+                        <td className="i i-add">+</td>
 
                     </tr>
                   </tbody>
@@ -133,12 +133,12 @@ class IngredientDetail extends Component {
     }
 }
 
-IngredientDetail.propTypes = {
+IngredientDetail.propTypes={
     ingredientList: React.PropTypes.array,
     isEditing: React.PropTypes.bool,
     handleUnitChange: React.PropTypes.func,
     handleAmtChange:React.PropTypes.func,
     handleIngredientChange: React.PropTypes.func
-};
+}
 
 export default IngredientDetail

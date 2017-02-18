@@ -15,13 +15,15 @@ class RecipeList extends Component {
                         key={i}
                         index={i}
                         recipe={recipe}
-                        titleClicked = {this.props.titleClicked}
+                        titleClicked={this.props.titleClicked}
                         updateInstr={this.updateInstructions}
                         deleteButtonClick={this.props.deleteButtonClick}
                         handleInstructionChange={this.props.handleInstructionChange}
                         isEditing={this.props.isEditing}
                         saveButtonClick={this.props.saveButtonClick}
-                        editButtonClick={this.props.editButtonClick}/>
+                        cancelButtonClick={this.props.cancelButtonClick}
+                        editButtonClick={this.props.editButtonClick}
+                        saveInstructions={this.props.saveInstructions} />
                     )
                 })}
 
@@ -30,18 +32,18 @@ class RecipeList extends Component {
     }
 }
 
-RecipeList.propTypes = {
+RecipeList.propTypes={
 
     recipies: React.PropTypes.array,
     editButtonClick: React.PropTypes.func,
     saveButtonClick: React.PropTypes.func,
+    cancelButtonClick: React.PropTypes.func,
     deleteButtonClick: React.PropTypes.func,
     isEditing: React.PropTypes.bool,
     handleInstructionChange: React.PropTypes.func,
     updateInstr: React.PropTypes.func,
-    titleClicked: React.PropTypes.func
-
-
+    titleClicked: React.PropTypes.func,
+    saveInstructions: React.PropTypes.func
 }
 
 export default RecipeList

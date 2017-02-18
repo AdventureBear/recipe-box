@@ -11,7 +11,7 @@ class RecipeBox extends Component {
         super(props)
         this.state ={
             filteredRecipes: recipeData,
-            editing: false
+            newInstructions: ""
         }
     }
     handleSearchChange = (event) => {
@@ -26,25 +26,37 @@ class RecipeBox extends Component {
     handleInstructionChange = (event) => {
         console.log('instructions edited', event.target.value)
         this.setState({
-            instructions: event.target.value
+            newInstructions: event.target.value
         })
     }
+
     titleClicked =(i) => {
         console.log('Title Clicked ' + i)
 
     }
+    /*
     editButtonClick = () => {
         console.log('Edit Button Clicked')
         this.setState({
             editing: true
         })
     }
-    saveButtonClick = () => {
-        console.log('Save Button Clicked')
+    */
+    /*saveButtonClick = (event) => {
+        console.log('Save Button Clicked, Recipe Box component')
+        this.setState({
+            editing: false
+
+        })
+    }
+*/
+    /*cancelButtonClick = () => {
+        console.log('Cancel Button Clicked')
         this.setState({
             editing: false
         })
-    }
+    }*/
+
     removeRecipe = (i) => {
         console.log('Delete Button Clicked' + i)
         console.log("Removing Recipe: " +i);
@@ -54,13 +66,17 @@ class RecipeBox extends Component {
             filteredRecipes: arr
         })
     }
-    updateInstructions = (newInstr, i) => {
-        console.log('Updating instructions: ' + i )
+    saveInstructions = (i) => {
+        console.log("in app, "+ i)
         var arr=this.state.filteredRecipes
-        arr[i].instructions = newInstr
+        console.log(arr[1].instructions)
+        console.log("Saving Instructions??")
         this.setState({
-            filteredRecipes: arr
+            isEditing: false,
+            filteredRecipes: arr,
+            newInstructions: ""
         })
+
     }
 
     render(){
@@ -71,12 +87,15 @@ class RecipeBox extends Component {
                 />
 
                 <RecipeList
+                  handleInstructionChange={this.handleInstructionChange}
                   isEditing={this.state.editing}
                   recipies={this.state.filteredRecipes}
                   titleClicked={this.titleClicked}
                   updateInstr={this.updateInstructions}
                   deleteButtonClick={this.removeRecipe}
+                  saveInstructions={this.saveInstructions}
                   saveButtonClick={this.saveButtonClick}
+                  cancelButtonClick={this.cancelButtonClick}
                   editButtonClick={this.editButtonClick}
                 />
                 <Footer />
