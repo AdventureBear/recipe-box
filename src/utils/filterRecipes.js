@@ -1,7 +1,7 @@
 /**
  * Created by suzanne on 1/31/17.
  */
- import recipeData from "../recipeData.json"
+ import recipeData from "./recipeData.json"
 
 export default function filterRecipes(searchText) {
   const regex = new RegExp(searchText, 'gi');

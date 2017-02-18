@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import Header from './Header'
-import RecipeList from './RecipeList'
-import Footer from './Footer'
+import Header from '../Header/Header'
+import RecipeList from '../RecipeList/RecipeList'
+import Footer from '../Footer/Footer'
 import './RecipeBox.css'
-import recipeData from './recipeData.json'
-import filterRecipes from './js/filterRecipes.js'
+import recipeData from '../../utils/recipeData.json'
+import filterRecipes from '../../utils/filterRecipes.js'
 
 class RecipeBox extends Component {
     constructor(props){

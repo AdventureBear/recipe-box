@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import IngredientDetail from './IngredientDetail'
+import IngredientDetail from '../IngredientDetail/IngredientDetail'
 import './IngredientList.css'
 
 class IngredientList extends Component {

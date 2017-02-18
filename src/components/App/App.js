@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import RecipeBox from './RecipeBox'
-import logo from './frying_pan.png';
+import RecipeBox from '../RecipeBox/RecipeBox'
+import logo from '../../images/frying_pan.png';
 import './App.css';
 
 class App extends Component {
