@@ -12,6 +12,7 @@ class IngredientList extends Component {
                 <IngredientDetail
                   isEditing={this.props.isEditing}
                   ingredientList={this.props.ingredientList}
+
                   handleUnitChange={this.props.handleUnitChange}
                   handleAmtChange={this.props.handleAmtChange}
                   handleIngredientChange={this.props.handleIngredientChange}

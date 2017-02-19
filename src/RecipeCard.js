@@ -50,7 +50,6 @@ class RecipeCard extends Component {
           </div>
         </div>
       )
-
     }
     renderDisplayView() {
         return (

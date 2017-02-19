@@ -58,7 +58,7 @@ class RecipeBox extends Component {
                 <Header
                   textChange={this.handleSearchChange}
                 />
-              <button onClick={this.addRecipe} className="button-info">Add New</button>
+              <div onClick={this.addRecipe} className="circle-btn">ADD</div>
 
                 {recipeData.map((recipe, i)=>{
                     return (
@@ -66,7 +66,6 @@ class RecipeBox extends Component {
                         key={i}
                         index={i}
                         recipe={recipe}
-                        isEditing={this.props.isEditing}
                         handleInstructionChange={this.handleInstructionChange}
                         saveRecipe={this.saveRecipe}
                         deleteButtonClick={this.removeRecipe}

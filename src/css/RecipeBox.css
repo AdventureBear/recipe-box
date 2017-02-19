@@ -3,3 +3,17 @@
     background-color: #fdefde;
     color: #321321;
 }
+
+.circle-btn {
+    display:block;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    color: white;
+    background-color: #1c22f0;
+    margin: -25px 0 0 80%;
+    font-weight: bold ;
+    font-size: 1.2em;
+    vertical-align: middle;
+    line-height: 60px;
+}
