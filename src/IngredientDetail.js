@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './IngredientDetail.css'
+import './css/IngredientDetail.css'
 
 class IngredientDetail extends Component {
     renderDisplay(){
@@ -73,7 +73,7 @@ class IngredientDetail extends Component {
                         </td>
                         <td><input type="text"
                                    defaultValue={ingredient.ingredient}
-                                   onChange={this.props.handleIngredientChange}/>
+                                   onChange={this.props.handleIngredientChange} />
                         </td>
                         <td className="i i-delete">x</td>
                         </tr>
@@ -135,10 +135,13 @@ class IngredientDetail extends Component {
 
 IngredientDetail.propTypes={
     ingredientList: React.PropTypes.array,
-    isEditing: React.PropTypes.bool,
-    handleUnitChange: React.PropTypes.func,
-    handleAmtChange:React.PropTypes.func,
-    handleIngredientChange: React.PropTypes.func
+    isEditing: React.PropTypes.bool
 }
 
 export default IngredientDetail
+
+/* to implement
+ handleUnitChange: React.PropTypes.func,
+ handleAmtChange:React.PropTypes.func,
+ handleIngredientChange: React.PropTypes.func
+ */

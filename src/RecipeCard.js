@@ -1,19 +1,25 @@
 import React, { Component } from 'react'
 import IngredientList from './IngredientList'
-import './RecipeCard.css'
+import './css/RecipeCard.css'
 
 class RecipeCard extends Component {
   constructor(props){
     super(props)
     this.state ={
       show: false,
-      idEditing: false
+      idEditing: false,
+      newInstructions: this.props.recipe.instructions
       }
     }
+  handleInstructionChange = (event) => {
+    console.log('instructions edited', event.target.value)
+    this.setState({
+      newInstructions: event.target.value
+    })
+  }
     showRecipe = () => {
       console.log("clicked recipe")
       var showing = !this.state.show
-      this.props.titleClicked()
       this.setState({
         show: showing
       })
@@ -24,14 +30,11 @@ class RecipeCard extends Component {
           isEditing: true
         })
     }
-    saveButtonClick = (e) => {
+    saveButtonClick = () => {
       console.log('Save Button Clicked, in Component')
-      console.log(this.state.newInstructions)
       this.setState({
         isEditing: false
       })
-      this.props.saveInstructions()
-
     }
     cancelButtonClick = () => {
       console.log('Cancel Button Clicked')
@@ -74,7 +77,7 @@ class RecipeCard extends Component {
                  <IngredientList isEditing={this.state.isEditing} ingredientList={this.props.recipe.ingredientList}  />
 
                 <h3>Directions</h3>
-                <textarea className='directions' onChange={this.props.handleInstructionChange} defaultValue={this.props.recipe.instructions}></textarea>
+                <textarea className='directions' onChange={this.handleInstructionChange} defaultValue={this.props.recipe.instructions}></textarea>
                 <button className="button" onClick={this.saveButtonClick}>Save</button>
                 <button className="button" onClick={this.cancelButtonClick}>Cancel</button>
 
@@ -99,14 +102,12 @@ class RecipeCard extends Component {
 
 RecipeCard.propTypes = {
     recipe: React.PropTypes.object,
-    handleInstructionChange: React.PropTypes.func,
-    saveInstructions: React.PropTypes.func,
-    updateInstr: React.PropTypes.func,
-    deleteButtonClick: React.PropTypes.func,
-    handleUnitChange: React.PropTypes.func,
-    handleAmtChange:React.PropTypes.func,
-    handleIngredientChange: React.PropTypes.func,
-    titleClicked: React.PropTypes.func,
-    newInstructions: React.PropTypes.obj
+    deleteButtonClick: React.PropTypes.func
 };
 export default RecipeCard
+
+/* to implement
+ handleUnitChange: React.PropTypes.func,
+ handleAmtChange:React.PropTypes.func,
+ handleIngredientChange: React.PropTypes.func
+ */

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import IngredientDetail from './IngredientDetail'
-import './IngredientList.css'
+import './css/IngredientList.css'
 
 class IngredientList extends Component {
 
@@ -23,10 +23,13 @@ class IngredientList extends Component {
 
 IngredientList.propTypes = {
     ingredientList: React.PropTypes.array,
-    isEditing: React.PropTypes.bool,
-    handleUnitChange: React.PropTypes.func,
-    handleAmtChange:React.PropTypes.func,
-    handleIngredientChange: React.PropTypes.func
+    isEditing: React.PropTypes.bool
 }
 
 export default IngredientList
+
+/* to implement
+ handleUnitChange: React.PropTypes.func,
+ handleAmtChange:React.PropTypes.func,
+ handleIngredientChange: React.PropTypes.func
+ */

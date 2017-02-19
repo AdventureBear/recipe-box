@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Header from './Header'
-import RecipeList from './RecipeList'
+import RecipeCard from './RecipeCard'
 import Footer from './Footer'
-import './RecipeBox.css'
+import './css/RecipeBox.css'
 import recipeData from './recipeData.json'
 import filterRecipes from './js/filterRecipes.js'
 
@@ -10,8 +10,7 @@ class RecipeBox extends Component {
     constructor(props){
         super(props)
         this.state ={
-            filteredRecipes: recipeData,
-            newInstructions: ""
+            filteredRecipes: recipeData
         }
     }
     handleSearchChange = (event) => {
@@ -23,40 +22,6 @@ class RecipeBox extends Component {
         })
     }
 
-    handleInstructionChange = (event) => {
-        console.log('instructions edited', event.target.value)
-        this.setState({
-            newInstructions: event.target.value
-        })
-    }
-
-    titleClicked =(i) => {
-        console.log('Title Clicked ' + i)
-
-    }
-    /*
-    editButtonClick = () => {
-        console.log('Edit Button Clicked')
-        this.setState({
-            editing: true
-        })
-    }
-    */
-    /*saveButtonClick = (event) => {
-        console.log('Save Button Clicked, Recipe Box component')
-        this.setState({
-            editing: false
-
-        })
-    }
-*/
-    /*cancelButtonClick = () => {
-        console.log('Cancel Button Clicked')
-        this.setState({
-            editing: false
-        })
-    }*/
-
     removeRecipe = (i) => {
         console.log('Delete Button Clicked' + i)
         console.log("Removing Recipe: " +i);
@@ -66,18 +31,6 @@ class RecipeBox extends Component {
             filteredRecipes: arr
         })
     }
-    saveInstructions = (i) => {
-        console.log("in app, "+ i)
-        var arr=this.state.filteredRecipes
-        console.log(arr[1].instructions)
-        console.log("Saving Instructions??")
-        this.setState({
-            isEditing: false,
-            filteredRecipes: arr,
-            newInstructions: ""
-        })
-
-    }
 
     render(){
         return (
@@ -86,27 +39,26 @@ class RecipeBox extends Component {
                   textChange={this.handleSearchChange}
                 />
 
-                <RecipeList
-                  handleInstructionChange={this.handleInstructionChange}
-                  isEditing={this.state.editing}
-                  recipies={this.state.filteredRecipes}
-                  titleClicked={this.titleClicked}
-                  updateInstr={this.updateInstructions}
-                  deleteButtonClick={this.removeRecipe}
-                  saveInstructions={this.saveInstructions}
-                  saveButtonClick={this.saveButtonClick}
-                  cancelButtonClick={this.cancelButtonClick}
-                  editButtonClick={this.editButtonClick}
-                  newInstr={this.state.newInstructions}
-                />
+                {recipeData.map((recipe, i)=>{
+                    return (
+                      <RecipeCard
+                        key={i}
+                        index={i}
+                        recipe={recipe}
+                        isEditing={this.props.isEditing}
+                        handleInstructionChange={this.handleInstructionChange}
+                        saveInstructions={this.saveInstructions}
+                        deleteButtonClick={this.removeRecipe}
+                        />
+                    )
+                })}
+
                 <Footer />
             </div>
         )
     }
 }
 
-RecipeBox.propTypes = {
-    recipeData: React.PropTypes.array
-};
+
 
 export default RecipeBox
