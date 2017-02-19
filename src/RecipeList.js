@@ -23,7 +23,9 @@ class RecipeList extends Component {
                         saveButtonClick={this.props.saveButtonClick}
                         cancelButtonClick={this.props.cancelButtonClick}
                         editButtonClick={this.props.editButtonClick}
-                        saveInstructions={this.props.saveInstructions} />
+                        saveInstructions={this.props.saveInstructions}
+                        newInstructions ={this.props.newInstructions}
+                        />
                     )
                 })}
 
@@ -43,7 +45,8 @@ RecipeList.propTypes={
     handleInstructionChange: React.PropTypes.func,
     updateInstr: React.PropTypes.func,
     titleClicked: React.PropTypes.func,
-    saveInstructions: React.PropTypes.func
+    saveInstructions: React.PropTypes.func,
+    newInstructions: React.PropTypes.obj
 }
 
 export default RecipeList

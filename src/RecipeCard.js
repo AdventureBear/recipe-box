@@ -24,14 +24,15 @@ class RecipeCard extends Component {
           isEditing: true
         })
     }
-    //saveButtonClick = () => {
-    //  console.log('Save Button Clicked, in Component')
-    //  this.setState({
-    //    isEditing: false
-    //  })
-    //  this.props.saveInstructions()
-    //
-    //}
+    saveButtonClick = (e) => {
+      console.log('Save Button Clicked, in Component')
+      console.log(this.state.newInstructions)
+      this.setState({
+        isEditing: false
+      })
+      this.props.saveInstructions()
+
+    }
     cancelButtonClick = () => {
       console.log('Cancel Button Clicked')
       this.setState({
@@ -74,7 +75,7 @@ class RecipeCard extends Component {
 
                 <h3>Directions</h3>
                 <textarea className='directions' onChange={this.props.handleInstructionChange} defaultValue={this.props.recipe.instructions}></textarea>
-                <button className="button" onClick={this.props.saveInstructions}>Save</button>
+                <button className="button" onClick={this.saveButtonClick}>Save</button>
                 <button className="button" onClick={this.cancelButtonClick}>Cancel</button>
 
               </div>
@@ -105,6 +106,7 @@ RecipeCard.propTypes = {
     handleUnitChange: React.PropTypes.func,
     handleAmtChange:React.PropTypes.func,
     handleIngredientChange: React.PropTypes.func,
-    titleClicked: React.PropTypes.func
+    titleClicked: React.PropTypes.func,
+    newInstructions: React.PropTypes.obj
 };
 export default RecipeCard

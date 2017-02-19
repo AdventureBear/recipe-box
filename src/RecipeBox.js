@@ -97,6 +97,7 @@ class RecipeBox extends Component {
                   saveButtonClick={this.saveButtonClick}
                   cancelButtonClick={this.cancelButtonClick}
                   editButtonClick={this.editButtonClick}
+                  newInstr={this.state.newInstructions}
                 />
                 <Footer />
             </div>
