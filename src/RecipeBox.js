@@ -21,7 +21,6 @@ class RecipeBox extends Component {
 
         })
     }
-
     saveRecipe = (newInstr, i) => {
       console.log("Save Button Clicked in recipe box")
       var arr=this.state.filteredRecipes
@@ -36,6 +35,22 @@ class RecipeBox extends Component {
             filteredRecipes: arr
         })
     }
+    addRecipe = () => {
+      var arr=this.state.filteredRecipes
+      arr.unshift({
+        "title":"New Recipe",
+        "ingredientList":[
+          {
+            "amount":"1",
+            "unit":"cup",
+            "ingredient":"Enter First Ingredient"
+          }
+        ],
+        "instructions":"Make it awesome"
+      })
+      this.setState({filteredRecipes: arr})
+    }
+
 
     render(){
         return (
@@ -43,6 +58,7 @@ class RecipeBox extends Component {
                 <Header
                   textChange={this.handleSearchChange}
                 />
+              <button onClick={this.addRecipe} className="button-info">Add New</button>
 
                 {recipeData.map((recipe, i)=>{
                     return (

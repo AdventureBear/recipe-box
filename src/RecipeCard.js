@@ -7,8 +7,7 @@ class RecipeCard extends Component {
     super(props)
     this.state ={
       show: false,
-      idEditing: false,
-      newInstructions: this.props.recipe.instructions
+      idEditing: false
       }
     }
   handleInstructionChange = (event) => {
