@@ -1,3 +1,7 @@
 .component-ingredientlist {
 
 }
+
+img.edit, img.del {
+    height: 15px;
+}

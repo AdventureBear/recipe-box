@@ -7,13 +7,14 @@ class RecipeCard extends Component {
     super(props)
     this.state ={
       show: false,
-      idEditing: false
+      idEditing: false,
+      instructions: this.props.recipe.instructions
       }
     }
   handleInstructionChange = (event) => {
     console.log('instructions edited', event.target.value)
     this.setState({
-      newInstructions: event.target.value
+      instructions: event.target.value
     })
   }
     showRecipe = () => {
@@ -30,11 +31,14 @@ class RecipeCard extends Component {
         })
     }
     saveButtonClick = () => {
-      console.log('Save Button Clicked, ' + this.refs.newInstr.value)
+      console.log('Save Button Clicked, ' + this.state.instructions)
+      let newInstr = this.state.instructions
       this.setState({
         isEditing: false
       })
-      this.props.saveRecipe(this.refs.newInstr.value,this.props.index)
+
+      this.props.saveRecipe(newInstr, this.props.index)
+
     }
     cancelButtonClick = () => {
       console.log('Cancel Button Clicked')
@@ -56,7 +60,7 @@ class RecipeCard extends Component {
           <div className='component-recipecard' >
             <div className='container'>
               <h2 onClick={this.showRecipe}>{this.props.recipe.title}</h2>
-              <IngredientList isEditing={this.props.isEditing} ingredientList={this.props.recipe.ingredientList}  />
+              <IngredientList ingredientList={this.props.recipe.ingredientList}  />
               <h3>Directions</h3>
               <p className='directions'>{this.props.recipe.instructions}</p>
               <button className="button" onClick={this.editButtonClick}>Edit</button>
