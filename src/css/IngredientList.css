@@ -1,7 +1,59 @@
 .component-ingredientlist {
 
 }
+table {
+    margin: 0 auto;
+    width: 100%;
 
-img.edit, img.del {
-    height: 15px;
 }
+
+table:hover {
+box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+tr {
+height: 30px;
+}
+
+th {
+color: #333333;
+background-color: none;
+text-align: left;
+padding: 6px 12px;
+
+}
+
+td {
+padding: 2px 12px;
+text-align: left;
+}
+
+td.right, th.right{
+text-align: right;
+}
+
+td input, select{
+background-color:rgba(32, 13, 21, 0.5));
+border-width: 0 0 1px 0;
+border-style: solid;
+border-bottom-color: #ffdc00;
+font-size: 1em;
+color: #333;
+padding: 2px 6px;
+}
+
+
+
+.amt, .unit {
+    width:25%
+}
+
+.ing {
+    width: 40%;
+}
+
+.action {
+    width:15%;
+}
+
+

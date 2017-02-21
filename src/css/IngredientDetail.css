@@ -4,46 +4,37 @@
     padding: 10px;
 }
 
-table {
-    margin: 0 auto;
-    width: 100%;
 
+img.edit, img.del {
+    height: 15px;
+}
+img.back, img.save {
+    height: 20px;
 }
 
-table:hover {
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+.tooltip {
+    position: relative;
+    display: inline-block;
 }
 
-tr {
-    height: 30px;
-}
-th {
-    color: #333333;
-    background-color: none;
-    text-align: left;
-    padding: 6px 12px;
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 60px;
+    background-color: #333333;
+    border-radius: 5px;
+    color: #eeeeee;
+    text-align: center;
+    padding: 3px 0;
 
-}
-
-td {
-    padding: 2px 12px;
-    text-align: left;
-}
-
-td.right, th.right{
-    text-align: right;
+    /* Position the tooltip */
+    width: 70px;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -40px;
+    position: absolute;
+    z-index: 1;
 }
 
-td input, select{
-    background-color: transparent;
-    border-width: 0 0 1px 0;
-    border-style: solid;
-    border-bottom-color: #ffdc00;
-    font-size: 1em;
-    color: #333;
-    padding: 2px 6px;
-}
-
-.skinny {
-    width: 25%;
+.tooltip:hover .tooltiptext {
+    visibility: visible;
 }
