@@ -28,7 +28,26 @@ class RecipeBox extends Component {
       arr[i].instructions = newInstr
       this.setState({filteredRecipes: arr})
     }
+    updateIngredientsList = (i) => {
+      console.log(i)
+      console.log(this.state.filteredRecipes[i])
+      const newIngredientObj = {"ingredient": "click edit to update", "unit": "tsp", "amount": "1"}
+      var arr=this.state.filteredRecipes
+      arr[i]["ingredientList"].push(newIngredientObj)
+      this.setState({
+        filteredRecipes: arr
+      })
 
+    }
+  removeIngredientfromList = (ingNum, RecNum) => {
+    console.log("Removing: " + this.state.filteredRecipes[RecNum].ingredientList[ingNum].ingredient  +  " from " + this.state.filteredRecipes[RecNum].title)
+    var arr=this.state.filteredRecipes
+    arr[RecNum].ingredientList.splice(ingNum,1)
+    this.setState({
+      filteredRecipes: arr
+    })
+
+  }
     saveIngredients = (ingredientObj, ingNum, recNum) => {
       console.log("Save Ingredients in recipe box")
       console.log(ingredientObj, ingNum, recNum)
@@ -82,6 +101,8 @@ class RecipeBox extends Component {
                         recipe={recipe}
                         handleInstructionChange={this.handleInstructionChange}
                         saveRecipe={this.saveRecipe}
+                        removeIngredientfromList={this.removeIngredientfromList}
+                        updateIngredientsList={this.updateIngredientsList}
                         saveIngredients={this.saveIngredients}
                         deleteButtonClick={this.removeRecipe}
                         />

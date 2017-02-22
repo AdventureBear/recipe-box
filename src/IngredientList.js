@@ -11,6 +11,10 @@ class IngredientList extends Component {
               }
           }
 
+          handleAddIngredientClick = () => {
+            console.log("clicked add ingredient")
+            this.props.addIngredient();
+          }
 
 
         render() {
@@ -28,18 +32,20 @@ class IngredientList extends Component {
                 </tr>
 
                 {this.props.ingredientList.map((ingredient, i) => {
-                console.log(ingredient)
-                return <IngredientDetail
-                  key={i}
-                  index={i}
-                  ingredient={ingredient}
-                  saveIngredientList={this.props.saveIngredientList} />
+                    console.log(ingredient)
+                    return <IngredientDetail
+                      key={i}
+                      index={i}
+                      ingredient={ingredient}
+                      saveIngredientList={this.props.saveIngredientList}
+                      deleteIngredient = {this.props.deleteIngredient} />
+                    })
+                }
 
-              })
-              }
 
                 </tbody>
                 </table>
+              <button onClick={this.handleAddIngredientClick}>Add New Ingredient</button>
             </div>
           )
         }
@@ -51,6 +57,8 @@ class IngredientList extends Component {
 
   IngredientList.propTypes = {
     ingredientList: React.PropTypes.object,
+    addIngredient: React.PropTypes.func,
+    deleteIngredient: React.PropTypes.func,
     saveIngredientList: React.PropTypes.func
 }
 

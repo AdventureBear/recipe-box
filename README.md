@@ -4,6 +4,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Live Site @ Github Pages: [My Recipe Box](https://adventurebear.github.io/recipe-box/)
 
+## Installation
+
+    $ npm install
+
+    $ npm start
+
+
 ## Project Goals
 
 This project is for Free Code Camp's Data Visualization Challenge, ['Recipe App'](https://www.freecodecamp.com/challenges/build-a-recipe-box)

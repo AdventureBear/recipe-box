@@ -38,7 +38,10 @@ class IngredientDetail extends Component {
     })
     this.props.saveIngredientList(ingredientObj, this.props.index)
   }
-
+  handleDeleteClick =() => {
+    console.log("delete button clicked for: ", this.props.ingredient.ingredient)
+    this.props.deleteIngredient(this.props.index)
+  }
   render () {
     if (this.state.isEditing) {
       return this.renderEdit()
@@ -54,7 +57,7 @@ class IngredientDetail extends Component {
         <td className="unit">{this.props.ingredient.unit}</td>
         <td className="ing">{this.props.ingredient.ingredient}</td>
         <td className="action"><div className="tooltip"><span className="tooltiptext">Edit</span><img src={edit} onClick={this.handleEditClick} className="edit" alt="edit"/></div></td>
-        <td className="action"><div className="tooltip"><span className="tooltiptext">Delete</span><img src={del} className="del" alt="delete"/></div></td>
+        <td className="action"><div className="tooltip"><span className="tooltiptext">Delete</span><img src={del} onClick={this.handleDeleteClick} className="del" alt="delete"/></div></td>
       </tr>
     )
   }
@@ -115,8 +118,9 @@ class IngredientDetail extends Component {
 
 }
 IngredientDetail.propTypes={
-  ingredient: React.PropTypes.array,
-  saveIngredientList: React.PropTypes.func
+  ingredient: React.PropTypes.object,
+  saveIngredientList: React.PropTypes.func,
+  deleteIngredient: React.PropTypes.func
 }
 
 export default IngredientDetail

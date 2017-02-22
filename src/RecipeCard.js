@@ -40,11 +40,20 @@ class RecipeCard extends Component {
       })
       this.props.saveRecipe(newInstr, newTitle, this.props.index)
     }
+    addIngredient = () => {
+      this.props.updateIngredientsList(this.props.index)
+    }
+
 
     saveIngredientList = (ingredientObj, ingredientNum) => {
      console.log("Updating Ingredient List in Recipe Card", ingredientObj)
       this.props.saveIngredients(ingredientObj, ingredientNum, this.props.index)
     }
+
+  deleteIngredient = (ingNum) => {
+    console.log("Sending data to parent: " + this.props.recipe.ingredientList[ingNum].ingredient  +  " from " + this.props.recipe.title)
+    this.props.removeIngredientfromList(ingNum, this.props.index)
+  }
 
     cancelButtonClick = () => {
       console.log('Cancel Button Clicked')
@@ -68,6 +77,8 @@ class RecipeCard extends Component {
               <h2 onClick={this.showRecipe}>{this.props.recipe.title}</h2>
               <IngredientList ingredientList={this.props.recipe.ingredientList}
                               saveIngredientList={this.saveIngredientList}
+                              deleteIngredient={this.deleteIngredient}
+                              addIngredient={this.addIngredient}
                 />
               <h3>Directions</h3>
               <p className='directions'>{this.props.recipe.instructions}</p>
@@ -91,7 +102,9 @@ class RecipeCard extends Component {
                  <IngredientList
                    isEditing={this.state.isEditing}
                    ingredientList={this.props.recipe.ingredientList}
+                   addIngredient={this.addIngredient}
                    saveIngredientList={this.saveIngredientList}
+                   deleteIngredient={this.deleteIngredient}
                  />
 
                 <h3>Directions</h3>
@@ -125,8 +138,9 @@ class RecipeCard extends Component {
 RecipeCard.propTypes = {
     recipe: React.PropTypes.object,
     saveRecipe: React.PropTypes.func,
+    updateIngredientsList: React.PropTypes.func,
     saveIngredients: React.PropTypes.func,
-    deleteButtonClick: React.PropTypes.func
+    removeIngredientfromList: React.PropTypes.func
 }
 
 export default RecipeCard
