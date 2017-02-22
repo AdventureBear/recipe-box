@@ -11,12 +11,12 @@ class RecipeCard extends Component {
       instructions: this.props.recipe.instructions
       }
     }
-  handleInstructionChange = (event) => {
-    console.log('instructions edited', event.target.value)
-    this.setState({
-      instructions: event.target.value
-    })
-  }
+    handleInstructionChange = (event) => {
+      console.log('instructions edited', event.target.value)
+      this.setState({
+        instructions: event.target.value
+      })
+    }
     showRecipe = () => {
       console.log("clicked recipe")
       var showing = !this.state.show
@@ -36,10 +36,14 @@ class RecipeCard extends Component {
       this.setState({
         isEditing: false
       })
-
       this.props.saveRecipe(newInstr, this.props.index)
-
     }
+
+    saveIngredientList = (ingredientObj, ingredientNum) => {
+     console.log("Updating Ingredient List in Recipe Card", ingredientObj)
+      this.props.saveIngredients(ingredientObj, ingredientNum, this.props.index)
+    }
+
     cancelButtonClick = () => {
       console.log('Cancel Button Clicked')
       this.setState({
@@ -60,7 +64,9 @@ class RecipeCard extends Component {
           <div className='component-recipecard' >
             <div className='container'>
               <h2 onClick={this.showRecipe}>{this.props.recipe.title}</h2>
-              <IngredientList ingredientList={this.props.recipe.ingredientList}  />
+              <IngredientList ingredientList={this.props.recipe.ingredientList}
+                              saveIngredientList={this.saveIngredientList}
+                />
               <h3>Directions</h3>
               <p className='directions'>{this.props.recipe.instructions}</p>
               <button className="button" onClick={this.editButtonClick}>Edit</button>
@@ -80,6 +86,7 @@ class RecipeCard extends Component {
                  <IngredientList
                    isEditing={this.state.isEditing}
                    ingredientList={this.props.recipe.ingredientList}
+                   saveIngredientList={this.saveIngredientList}
                  />
 
                 <h3>Directions</h3>
@@ -113,12 +120,8 @@ class RecipeCard extends Component {
 RecipeCard.propTypes = {
     recipe: React.PropTypes.object,
     saveRecipe: React.PropTypes.func,
+    saveIngredients: React.PropTypes.func,
     deleteButtonClick: React.PropTypes.func
-};
-export default RecipeCard
+}
 
-/* to implement
- handleUnitChange: React.PropTypes.func,
- handleAmtChange:React.PropTypes.func,
- handleIngredientChange: React.PropTypes.func
- */
+export default RecipeCard

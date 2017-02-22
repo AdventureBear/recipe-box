@@ -9,9 +9,7 @@ class IngredientDetail extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      isEditing: false,
-      ingredient: this.props.ingredient
-
+      isEditing: false
     }
   }
   handleEditClick = () =>{
@@ -21,9 +19,6 @@ class IngredientDetail extends Component {
   }
   handleInputChange = (event) => {
     console.log('ingredient edited', event.target.value)
-    this.setState({
-      ingredient: event.target.value
-    })
   }
   handleBackClick = () => {
     this.setState ({
@@ -31,15 +26,19 @@ class IngredientDetail extends Component {
     })
   }
   handleSaveClick = () => {
-    console.log('Save Button Clicked, ' + this.state.ingredient)
-    let newIngredient = this.state.ingredient
+    console.log('Save Button Clicked, ' + this.refs.ingredient.value)
+    let ingredient = this.refs.ingredient.value
+    let unit = this.refs.unit.value
+    let amount = this.refs.amount.value
+    let ingredientObj = {"amount": amount,
+      "unit":unit,
+      "ingredient":ingredient}
     this.setState({
       isEditing: false
     })
-
-    //this.props.saveIngredient(newIngredient, this.props.index)
-
+    this.props.saveIngredientList(ingredientObj, this.props.index)
   }
+
   render () {
     if (this.state.isEditing) {
       return this.renderEdit()
@@ -65,12 +64,12 @@ class IngredientDetail extends Component {
     return (
               <tr className='component-ingredientdetail'>
                 <td className="amt right">
-                  <input className="amt" type="text"
+                  <input ref="amount" className="amt" type="text"
                          defaultValue={this.props.ingredient.amount}
                          onChange={this.handleAmtChange} />
                 </td>
                 <td className="unit">
-                  <select  defaultValue={this.props.ingredient.unit}
+                  <select  ref="unit" defaultValue={this.props.ingredient.unit}
                            onChange={this.handleUnitChange} >
                     <option value="teaspoon">tsp</option>
                     <option value="tbsp">tbsp</option>
@@ -94,19 +93,30 @@ class IngredientDetail extends Component {
                     <option value="small">small</option>
                   </select>
                 </td>
-                <td className="ing"><input type="text"
-                           defaultValue={this.state.ingredient.ingredient}
+                <td className="ing">
+                  <input ref="ingredient" type="text"
+                           defaultValue={this.props.ingredient.ingredient}
                            onChange={this.handleInputChange} />
                 </td>
-                <td className="action"><div className="tooltip"><span className="tooltiptext">Save</span><img src={save} onClick={this.handleSaveClick} className="save" alt="save"/></div></td>
-                <td className="action"><div className="tooltip"><span className="tooltiptext">Cancel</span><img src={back} onClick={this.handleBackClick} className="back" alt="back"/></div></td>
+                <td className="action">
+                  <div className="tooltip">
+                    <span className="tooltiptext">Save</span>
+                    <img src={save} onClick={this.handleSaveClick} className="save" alt="save"/>
+                  </div>
+                </td>
+                <td className="action">
+                  <div className="tooltip">
+                    <span className="tooltiptext">Cancel</span>
+                    <img src={back} onClick={this.handleBackClick} className="back" alt="back"/>
+                  </div>
+                </td>
               </tr>
             )}
 
 }
 IngredientDetail.propTypes={
   ingredient: React.PropTypes.array,
-  saveIngredient: React.PropTypes.func
+  saveIngredientList: React.PropTypes.func
 }
 
 export default IngredientDetail

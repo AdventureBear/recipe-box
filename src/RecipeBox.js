@@ -27,6 +27,19 @@ class RecipeBox extends Component {
       arr[i].instructions = newInstr
       this.setState({filteredRecipes: arr})
     }
+
+    saveIngredients = (ingredientObj, ingNum, recNum) => {
+      console.log("Save Ingredients in recipe box")
+      console.log(ingredientObj, ingNum, recNum)
+
+      var arr=this.state.filteredRecipes
+      console.log(arr[recNum])
+      arr[recNum]["ingredientList"][ingNum] = ingredientObj
+      this.setState({
+        filteredRecipes: arr
+      })
+    }
+
     removeRecipe = (i) => {
         console.log('Delete Button Clicked' + i)
         var arr=this.state.filteredRecipes
@@ -68,6 +81,7 @@ class RecipeBox extends Component {
                         recipe={recipe}
                         handleInstructionChange={this.handleInstructionChange}
                         saveRecipe={this.saveRecipe}
+                        saveIngredients={this.saveIngredients}
                         deleteButtonClick={this.removeRecipe}
                         />
                     )

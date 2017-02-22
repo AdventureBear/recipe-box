@@ -10,10 +10,8 @@ class IngredientList extends Component {
                isEditing: false
               }
           }
-          saveRecipe = (newIng, i) => {
-            console.log("Save Button Clicked in ingredients")
 
-          }
+
 
         render() {
           return (
@@ -31,7 +29,11 @@ class IngredientList extends Component {
 
                 {this.props.ingredientList.map((ingredient, i) => {
                 console.log(ingredient)
-                return <IngredientDetail key={i} ingredient={ingredient} />
+                return <IngredientDetail
+                  key={i}
+                  index={i}
+                  ingredient={ingredient}
+                  saveIngredientList={this.props.saveIngredientList} />
 
               })
               }
@@ -48,7 +50,8 @@ class IngredientList extends Component {
 }
 
   IngredientList.propTypes = {
-    ingredientList: React.PropTypes.object
+    ingredientList: React.PropTypes.object,
+    saveIngredientList: React.PropTypes.func
 }
 
 
