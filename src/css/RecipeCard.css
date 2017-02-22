@@ -75,3 +75,10 @@ textarea {
     clear: both;
     padding-bottom: 10px;
 }
+
+input.title {
+    text-align: center;
+    font-size: 1.4em;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
