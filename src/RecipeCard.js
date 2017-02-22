@@ -17,6 +17,7 @@ class RecipeCard extends Component {
         instructions: event.target.value
       })
     }
+
     showRecipe = () => {
       console.log("clicked recipe")
       var showing = !this.state.show
@@ -33,10 +34,11 @@ class RecipeCard extends Component {
     saveButtonClick = () => {
       console.log('Save Button Clicked, ' + this.state.instructions)
       let newInstr = this.state.instructions
+      let newTitle = this.refs.title.value
       this.setState({
         isEditing: false
       })
-      this.props.saveRecipe(newInstr, this.props.index)
+      this.props.saveRecipe(newInstr, newTitle, this.props.index)
     }
 
     saveIngredientList = (ingredientObj, ingredientNum) => {
@@ -82,7 +84,10 @@ class RecipeCard extends Component {
 
             <div className='component-recipecard'>
               <div className='container'>
-                <h2>{this.props.recipe.title}</h2>
+                <h2><input ref="title" className="title" type="text"
+                           defaultValue={this.props.recipe.title}
+                           onChange={this.handleTitleChange} />
+                  </h2>
                  <IngredientList
                    isEditing={this.state.isEditing}
                    ingredientList={this.props.recipe.ingredientList}

@@ -21,9 +21,10 @@ class RecipeBox extends Component {
 
         })
     }
-    saveRecipe = (newInstr, i) => {
+    saveRecipe = (newInstr, newTitle, i) => {
       console.log("Save Button Clicked in recipe box")
       var arr=this.state.filteredRecipes
+      arr[i].title = newTitle
       arr[i].instructions = newInstr
       this.setState({filteredRecipes: arr})
     }
