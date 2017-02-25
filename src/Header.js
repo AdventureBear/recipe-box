@@ -10,7 +10,7 @@ class Header extends Component {
                 <img src={logo} className="logo" alt="logo" />
                 <h2>Your Recipe Box</h2>
             <div className="search">
-                <span className="label">Search:</span>
+              <span className="icon"><i className="fa fa-search"></i></span>
                 <input className="input"  onChange={this.props.textChange} placeholder="Search Recipes" />
             </div>
         </div>

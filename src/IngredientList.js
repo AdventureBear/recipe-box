@@ -38,7 +38,7 @@ class IngredientList extends Component {
                       index={i}
                       ingredient={ingredient}
                       saveIngredientList={this.props.saveIngredientList}
-                      deleteIngredient = {this.props.deleteIngredient} />
+                      deleteIngredient={this.props.deleteIngredient} />
                     })
                 }
 
